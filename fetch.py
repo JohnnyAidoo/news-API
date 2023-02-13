@@ -2,7 +2,7 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-JsonObject = {}
+JsonObject = []
 
 link = 'https://news.google.com/home?hl=en-GH&gl=GH&ceid=GH:en'
 req = requests.get(link)
@@ -27,5 +27,5 @@ for text,img in zip(finder,img_finder):
     })
 
 data = json.dumps(JsonObject)
-print(data)
+
 print('done')
