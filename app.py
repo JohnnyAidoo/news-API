@@ -3,11 +3,7 @@ from bs4 import BeautifulSoup
 from flask import Flask
 import json
 
-jsonObject = {
-        "head":"",
-        "url" :"",
-        "image": ""
-        }
+jsonObject = {}
 
 link = 'https://news.google.com/home?hl=en-GH&gl=GH&ceid=GH:en'
 req = requests.get(link)
