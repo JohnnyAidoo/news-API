@@ -3,7 +3,7 @@ from bs4 import BeautifulSoup
 from flask import Flask
 import json
 
-jsonObject = {}
+JsonObject = []
 
 link = 'https://news.google.com/home?hl=en-GH&gl=GH&ceid=GH:en'
 req = requests.get(link)
@@ -21,7 +21,12 @@ for text,img in zip(finder,img_finder):
 #    print(url_link)
     url_image = (img['srcset'])
 #    print(url_image)
+    JsonObject.append({
+        "header": head,
+        "url": url_link,
+        "image": url_image
+    })
+
+data = json.dumps(JsonObject)
 
 print('done')
-
-json.dump(jsonObject)
