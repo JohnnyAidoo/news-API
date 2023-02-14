@@ -20,12 +20,11 @@ for text,img in zip(finder,img_finder):
 #    print(url_link)
     url_image = (img['srcset'])
 #    print(url_image)
-    JsonObject.append({
-        "header": head,
+    JsonObject.append(json.dumps({
+        "heading": head,
         "url": url_link,
         "image": url_image
-    })
-
+    }, indent=4))
 data = json.dumps(JsonObject)
 
 print('done')

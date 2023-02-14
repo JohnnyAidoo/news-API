@@ -1,7 +1,7 @@
 from flask import Flask, jsonify
 from fetch import data
 from flask_cors import CORS
-
+import json
 
 app = Flask(__name__)
 cors = CORS(app)
@@ -12,7 +12,8 @@ def index():
 
 @app.route('/api')
 def api():
-    return jsonify(data)
+    load = json.loads(data)
+    return (load)
 
 
 if __name__ == '__main__':
