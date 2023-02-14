@@ -2,7 +2,8 @@ import requests
 from bs4 import BeautifulSoup
 import json
 
-JsonObject = []
+JsonObject = {}
+array = []
 
 link = 'https://news.google.com/home?hl=en-GH&gl=GH&ceid=GH:en'
 req = requests.get(link)
@@ -20,11 +21,8 @@ for text,img in zip(finder,img_finder):
 #    print(url_link)
     url_image = (img['srcset'])
 #    print(url_image)
-    JsonObject.append(json.dumps({
-        "heading": head,
-        "url": url_link,
-        "image": url_image
-    }))
-data = json.dumps(JsonObject)
+    JsonObject.update({"head":head, "url": url_link, "image":url_image})
+    array.append(JsonObject)
+data = json.dumps(array)
 
 print('done')
