@@ -24,7 +24,7 @@ for text,img in zip(finder,img_finder):
         "heading": head,
         "url": url_link,
         "image": url_image
-    }, indent=4))
+    },)
 data = json.dumps(JsonObject)
 
-print('done')
+print(data)
